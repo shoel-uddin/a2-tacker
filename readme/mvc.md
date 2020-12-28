@@ -15,7 +15,7 @@
 ```javascript
 npm init -y
 npm i --save-dev nodemon
-sequelize -cli (if you need it)
+sequelize -cli (if you need it) //read sequelize.md
 npm i express morgan express-es6-template-engine
 touch index.js
 echo "node modules" >> .gitignore
@@ -332,7 +332,7 @@ const movieHandler = (req, res) => {
 			movies: data
 		}
 	});
-};
+});
 
 module.exports = {
 	movieHandler

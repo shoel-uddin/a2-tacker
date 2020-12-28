@@ -31,7 +31,7 @@ module.exports = {
 Create a `server/config/config.js`
 
 ```javascript
-require("dotenv").config();
+require("dotenv").config(); // This goes in the index.js
 
 module.exports = {
     development: {
@@ -39,30 +39,18 @@ module.exports = {
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         host: process.env.DB_HOST,
-        dialect: "mysql",
+        dialect: "postgres",
     },
 
-    test: {
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        host: process.env.DB_HOST,
-        dialect: "mysql",
-    },
-
-    production: {
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME,
-        host: process.env.DB_HOST,
-        dialect: "mysql",
-    },
 };
 ```
 
 -   Create a `.sequelizerc`
 
 ```javascript
+'use strict';
+
+require('dotenv').config();    // don't forget to require dotenv
 const path = require("path");
 
 module.exports = {
