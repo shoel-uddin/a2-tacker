@@ -1,0 +1,21 @@
+{
+  "name": "A2-Tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shoel-uddin/a2-tacker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shoel-uddin/a2-tacker/issues"
+  },
+  "homepage": "https://github.com/shoel-uddin/a2-tacker#readme"
+}
