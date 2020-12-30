@@ -35,7 +35,7 @@ server.listen(PORT, HOST, () => {
 
 ```sh
 - npm init
-- npm i express express-es6-templates-engine morgan helmet
+- npm i express express-es6-template-engine morgan helmet
 - npm i --save-dev nodemon
 - npm i bcryptjs 
 - npm i dotenv
