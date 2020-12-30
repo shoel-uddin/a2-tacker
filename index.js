@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const http = require('http')
 const express = require('express')
 const morgan = require("morgan")
@@ -9,6 +11,7 @@ const server = http.createServer(app)
 
 app.use(logger)
 app.use(helmet())
+app.use(express.urlencoded({extended: true}))
 
 const port = 3300
 const host = 'localhost'
@@ -21,6 +24,8 @@ app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
 
+//Needed for bcryptjs
+const bcrypt = require('bcryptjs')
 
 // Needed for templates rendering
 app.get('/', (req, res) => {

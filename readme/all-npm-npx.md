@@ -14,7 +14,7 @@ const server = http.createServer(app);
 const PORT = 3000;
 const HOST = '0.0.0.0';
 
-const logger = morgan('tiny');
+const logger = morgan('dev');
 
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
