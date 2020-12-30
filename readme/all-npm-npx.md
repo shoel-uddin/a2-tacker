@@ -39,7 +39,8 @@ server.listen(PORT, HOST, () => {
 - npm i --save-dev nodemon
 - npm i bcryptjs 
 - npm i dotenv
-- npm i sequelize --save-dev sequelize-cli
+- npm i sequelize 
+- npm i --save-dev sequelize-cli
 - npm i pg-hstore pg
 - npm i session-file-store express-session
 
@@ -48,6 +49,47 @@ server.listen(PORT, HOST, () => {
 ## 03 - Create Database
 
 ```sh
+- npx sequelize-cli init
 - npx sequelize-cli model:generate --name yourModelName --attributes name:string,type:string
 - npx sequelize-cli db:migrate
+```
+
+## Create User
+
+- This is used for the html to create a user
+```js
+app.get('/create',(req,res)=>{
+    res.send(`
+<form method="POST">
+    <input type="text" name="username" autofocus placeholder="username">
+    <br>
+    <input type="password" name="password">
+    <br>
+    <input type="submit" value="Create User">
+</form>    
+    `);
+})
+app.post('/create', async (req, res)=>{
+    const {
+        username,
+        password
+    } = req.body;
+    const hash = bcrypt.hashSync(password, 10)
+    try{
+        const newUser = await User.create({
+            username,
+            hash
+        })
+        console.log(newUser);
+    
+        res.send('user created')
+
+    } catch (e) {
+        res.send(`
+        <h1>UserName Is Taken!</h1>
+        <br>
+        <h1>TRY AGAIN</h1>
+        `);
+    }
+})
 ```
