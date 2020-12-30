@@ -26,14 +26,20 @@ app.set('view engine', 'html');
 
 //Needed for bcryptjs
 const bcrypt = require('bcryptjs')
+//Needed to use Routers
+const homeRouter = require('./routers/homeRouter')
+const a2ListRouter = require('./routers/a2ListRouter')
 
-// Needed for templates rendering
-app.get('/', (req, res) => {
-    res.render('homePage')
-})
-app.get('/a2list', (req,res)=>{
-    res.render('a2TrackerList')
-})
+app.use('/', homeRouter)
+app.use('/a2list', a2ListRouter)
+
+// // Needed for templates rendering
+// app.get('/', (req, res) => {
+//     res.render('homePage')
+// })
+// app.get('/a2list', (req,res)=>{
+//     res.render('a2List')
+// })
 
 //catch all if website doesn't
 app.get('*', (req, res) => {
