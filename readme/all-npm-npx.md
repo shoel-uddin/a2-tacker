@@ -53,6 +53,9 @@ server.listen(PORT, HOST, () => {
 - npx sequelize-cli model:generate --name yourModelName --attributes name:string,type:string
 - npx sequelize-cli db:migrate
 ```
+- When making users make sure to use `hash` as an attribute.
+- After migration use `allowNull: false, unique: true` under username to make sure there will be only unique usernames.
+- Under has `allowNull: false` so it's not ever left blank.
 
 ## Create User
 
@@ -93,3 +96,17 @@ app.post('/create', async (req, res)=>{
     }
 })
 ```
+
+## Sessions 
+
+- Make sure in package.json has the following after the "scripts
+```sh
+"nodemonConfig": {
+    "ignore": [
+      "sessions/*"
+    ]
+  }
+```
+
+## Sequelize 
+- 
