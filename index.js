@@ -10,7 +10,7 @@ const server = http.createServer(app)
 app.use(logger)
 app.use(helmet())
 
-const port = 3000
+const port = 3300
 const host = 'localhost'
 
 app.use(express.static("public"))
@@ -21,13 +21,10 @@ app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
 
-app.get('/', (req, res) => {
-    res.send('')
-})
 
 // Needed for templates rendering
-app.get('/app', (req, res) => {
-    res.render('home')
+app.get('/', (req, res) => {
+    res.render('homePage')
 })
 
 //catch all if website doesn't
@@ -36,7 +33,7 @@ app.get('*', (req, res) => {
 });
 
 server.listen(port, host, () => {
-    console.log(`Running on host: port`)
+    console.log(`Running on ${host}: ${port}`)
 })
 
 
