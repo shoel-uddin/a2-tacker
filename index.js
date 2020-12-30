@@ -2,7 +2,7 @@ const http = require('http')
 const express = require('express')
 const morgan = require("morgan")
 const helmet = require("helmet")
-const logger = morgan("tiny")
+const logger = morgan("dev")
 
 const app = express()
 const server = http.createServer(app)
@@ -25,6 +25,9 @@ app.set('view engine', 'html');
 // Needed for templates rendering
 app.get('/', (req, res) => {
     res.render('homePage')
+})
+app.get('/a2list', (req,res)=>{
+    res.render('a2TrackerList')
 })
 
 //catch all if website doesn't
